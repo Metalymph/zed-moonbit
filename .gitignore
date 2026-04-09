@@ -1,0 +1,11 @@
+# Rust build directory
+/target/
+Cargo.lock
+
+# Editor / OS files
+.DS_Store
+.idea/
+.vscode/
+
+# Zed build artifacts
+/*.wasm

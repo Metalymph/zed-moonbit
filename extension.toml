@@ -1,0 +1,17 @@
+id = "moonbit"
+name = "MoonBit"
+version = "0.1.0"
+schema_version = 1
+authors = ["Lorenzo Pirro <lorenzopirro1@gmail.com>"]
+description = "MoonBit language support for Zed Editor."
+repository = "https://github.com/Metalymph/zed-moonbit"
+license = "MIT"
+
+[grammars.moonbit]
+repository = "https://github.com/moonbitlang/tree-sitter-moonbit"
+# Pin this to a tested commit of tree-sitter-moonbit
+rev = "82237f3f508d09fb09668d9885c99a562a756fe0"
+
+[language_servers.moonbit-lsp]
+name = "MoonBit Language Server"
+languages = ["MoonBit"]
