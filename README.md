@@ -1,6 +1,6 @@
 [![CI](https://github.com/Metalymph/zed-moonbit/actions/workflows/ci.yml/badge.svg)](https://github.com/Metalymph/zed-moonbit/actions/workflows/ci.yml)
 
-# zed-moonbit
+# MoonBit Community
 
 MoonBit language support for the Zed editor.
 

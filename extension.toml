@@ -1,6 +1,6 @@
-id = "moonbit"
-name = "MoonBit"
-version = "0.1.1"
+id = "moonbit-community"
+name = "MoonBit Community"
+version = "0.1.2"
 schema_version = 1
 authors = ["Lorenzo Pirro <lorenzopirro1@gmail.com>"]
 description = "MoonBit language support for Zed Editor."
