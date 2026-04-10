@@ -1,4 +1,10 @@
 #!/usr/bin/env python3
+"""
+Dev entry point for zed-moonbit.
+
+Validates queries and optionally opens Zed.
+Use --watch to enter watch mode (continuous validation on file changes).
+"""
 
 from __future__ import annotations
 
@@ -63,6 +69,27 @@ def open_zed(project_dir: Path) -> None:
 
 
 def main() -> int:
+    import argparse
+
+    parser = argparse.ArgumentParser(description="zed-moonbit dev workflow.")
+    parser.add_argument(
+        "--watch", action="store_true",
+        help="Enter watch mode after initial validation."
+    )
+    parser.add_argument(
+        "--log", action="store_true",
+        help="Tail Zed log (in watch mode, runs in background)."
+    )
+    args = parser.parse_args()
+
+    # If --watch, delegate to watch.py with appropriate flags
+    if args.watch:
+        cmd = [python_cmd(), "scripts/watch.py", "--open-zed"]
+        if args.log:
+            cmd.append("--log")
+        return subprocess.run(cmd).returncode
+
+    # Standard dev flow
     project_dir = Path.cwd()
 
     ensure_node_types()

@@ -2,5 +2,13 @@ name = "MoonBit"
 grammar = "moonbit"
 path_suffixes = ["mbt"]
 line_comments = ["//"]
+block_comment = ["/*", "*/"]
 tab_size = 2
 hard_tabs = false
+
+[brackets]
+paired = [
+  ["{", "}"],
+  ["[", "]"],
+  ["(", ")"],
+]

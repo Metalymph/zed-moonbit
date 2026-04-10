@@ -10,20 +10,22 @@ else
 	PYTHON := python3
 endif
 
-.PHONY: help default grammar-setup clean-grammar grammar-check validate-queries zed-log-path zed-log dev
+.PHONY: help default grammar-setup clean-grammar grammar-check validate-queries zed-log-path zed-log dev watch watch-log
 
 default: help
 
 help:
 	@echo "Available targets:"
-	@echo "  make help           Show this help message"
-	@echo "  make grammar-setup  Clone/update the MoonBit grammar locally"
-	@echo "  make clean-grammar  Remove the local MoonBit grammar checkout"
-	@echo "  make grammar-check  Check that the pinned grammar exists"
+	@echo "  make help             Show this help message"
+	@echo "  make grammar-setup    Clone/update the MoonBit grammar locally"
+	@echo "  make clean-grammar    Remove the local MoonBit grammar checkout"
+	@echo "  make grammar-check    Check that the pinned grammar exists"
 	@echo "  make validate-queries Run all query validation checks"
-	@echo "  make zed-log-path   Print the expected Zed log path"
-	@echo "  make zed-log        Tail Zed.log"
-	@echo "  make dev            Validate queries and open the project in Zed"
+	@echo "  make zed-log-path     Print the expected Zed log path"
+	@echo "  make zed-log          Tail Zed.log"
+	@echo "  make dev              Validate queries and open the project in Zed"
+	@echo "  make watch            Watch files and re-validate on changes"
+	@echo "  make watch-log        Watch + tail Zed log"
 
 grammar-setup:
 	@if [ ! -d "$(TREE_SITTER_DIR)" ]; then \
@@ -63,3 +65,9 @@ zed-log:
 
 dev:
 	@$(PYTHON) scripts/dev.py
+
+watch:
+	@$(PYTHON) scripts/watch.py --open-zed
+
+watch-log:
+	@$(PYTHON) scripts/watch.py --open-zed --log

@@ -11,7 +11,7 @@
   (identifier) @name) @item
 
 (impl_definition
-  (function_identifier) @name) @item
+  (type_name) @name) @item
 
 (type_definition
   (identifier) @name) @item
@@ -21,3 +21,6 @@
 
 (value_definition
   (lowercase_identifier) @name) @item
+
+(test_definition
+  (string_literal) @name) @item

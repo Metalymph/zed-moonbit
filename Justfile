@@ -15,6 +15,8 @@ help:
   echo "  just zed-log-path        Print the expected Zed log path"
   echo "  just zed-log             Tail Zed.log"
   echo "  just dev                 Validate queries and open the project in Zed"
+  echo "  just watch               Watch files and re-validate on changes"
+  echo "  just watch-log           Watch + tail Zed log"
 
 default:
   just help
@@ -62,3 +64,9 @@ zed-log:
 
 dev:
   {{python}} scripts/dev.py
+
+watch:
+  {{python}} scripts/watch.py --open-zed
+
+watch-log:
+  {{python}} scripts/watch.py --open-zed --log
