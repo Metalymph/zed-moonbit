@@ -1,18 +1,5 @@
-[
-  (block_expression)
-  (array_expression)
-  (tuple_expression)
-  (struct_expression)
-  (match_expression)
-  (case_clause)
-  (enum_definition)
-  (struct_definition)
-  (trait_definition)
-  (parameters)
-] @indent
-
-[
-  "}"
-  "]"
-  ")"
-] @outdent
+(block_expression "}" @end) @indent
+(array_expression "]" @end) @indent
+(tuple_expression ")" @end) @indent
+(struct_expression "}" @end) @indent
+(match_expression "}" @end) @indent

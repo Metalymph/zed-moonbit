@@ -8,7 +8,7 @@ This document describes the workflow for developing and validating Tree-sitter q
 
 If you use invalid node types, Zed will fail:
 
-```
+```text
 Error loading highlights query
 Invalid node type "..."
 ```
@@ -28,19 +28,19 @@ You need:
 
 Install:
 
-```
+```bash
 cargo install --locked tree-sitter-cli
 ```
 
 or
 
-```
+```bash
 npm install -g tree-sitter-cli
 ```
 
 macOS jq:
 
-```
+```bash
 brew install jq
 ```
 
@@ -50,7 +50,7 @@ brew install jq
 
 Check `extension.toml`:
 
-```
+```toml
 rev = "82237f3f508d09fb09668d9885c99a562a756fe0"
 ```
 
@@ -70,7 +70,7 @@ Always match this version.
 
 ## Clone grammar
 
-```
+```bash
 git clone https://github.com/moonbitlang/tree-sitter-moonbit
 cd tree-sitter-moonbit
 git checkout 82237f3f508d09fb09668d9885c99a562a756fe0
@@ -80,13 +80,13 @@ git checkout 82237f3f508d09fb09668d9885c99a562a756fe0
 
 ## Inspect node types
 
-```
+```bash
 jq -r '.[].type' src/node-types.json | sort -u
 ```
 
 Filter:
 
-```
+```bash
 jq -r '.[].type' src/node-types.json | grep literal
 jq -r '.[].type' src/node-types.json | grep definition
 ```
@@ -99,19 +99,19 @@ If it's not in node-types.json → don't use it.
 
 ## Inspect AST
 
-```
+```bash
 tree-sitter parse file.mbt
 ```
 
 Wrong:
 
-```
+```scheme
 (function_item) @item
 ```
 
 Correct:
 
-```
+```scheme
 (function_definition) @item
 ```
 
@@ -121,7 +121,7 @@ Correct:
 
 Start with:
 
-```
+```scheme
 (type_identifier) @type
 (identifier) @variable
 (integer_literal) @number
@@ -135,25 +135,25 @@ Start with:
 
 Setup:
 
-```
+```bash
 make grammar-setup
 ```
 
 or
 
-```
+```bash
 just grammar-setup
 ```
 
 Validate:
 
-```
+```bash
 make validate-queries
 ```
 
 or
 
-```
+```bash
 just validate-queries
 ```
 
@@ -163,13 +163,13 @@ just validate-queries
 
 Path:
 
-```
+```bash
 just zed-log-path
 ```
 
 Tail:
 
-```
+```bash
 just zed-log
 ```
 
@@ -177,13 +177,13 @@ just zed-log
 
 ## Dev command
 
-```
+```bash
 just dev
 ```
 
 or
 
-```
+```bash
 make dev
 ```
 
@@ -191,13 +191,13 @@ make dev
 
 ## Windows
 
-```
+```powershell
 pwsh -File scripts/dev.ps1
 ```
 
 Logs:
 
-```
+```bash
 python scripts/zed_log.py --tail
 ```
 
@@ -205,7 +205,7 @@ python scripts/zed_log.py --tail
 
 ## Safe patterns
 
-```
+```scheme
 (identifier)
 (type_identifier)
 (integer_literal)
@@ -216,7 +216,7 @@ python scripts/zed_log.py --tail
 
 ## Dangerous patterns
 
-```
+```scheme
 (number_literal)
 (primitive_type)
 (function_item)
@@ -226,7 +226,7 @@ python scripts/zed_log.py --tail
 
 ## Outline baseline
 
-```
+```scheme
 (function_definition)
 (struct_definition)
 (enum_definition)
@@ -238,7 +238,7 @@ python scripts/zed_log.py --tail
 
 ## Indents baseline
 
-```
+```scheme
 (block_expression)
 (array_expression)
 (tuple_expression)
@@ -259,23 +259,35 @@ python scripts/zed_log.py --tail
 
 macOS/Linux:
 
-```
+```bash
 just dev
 just zed-log # via a secondary terminal window/panel
+
+# or to work in watch mode
+just watch
+just watch-log
 ```
 
 Make:
 
-```
+```bash
 make dev
 make zed-log # via a secondary terminal window/panel
+
+# or to work in watch mode
+make watch
+make watch-log
 ```
 
 Windows:
 
-```
+```powershell
 pwsh -File scripts/dev.ps1
 python scripts/zed_log.py --tail # via a secondary terminal window/panel
+
+# or to work in watch mode
+pwsh -File scripts/dev.ps1 -Watch
+pwsh -File scripts/dev.ps1 -Watch -Log
 ```
 
 ---
