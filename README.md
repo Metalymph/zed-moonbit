@@ -215,6 +215,27 @@ make validate-queries
 
 ---
 
+## Troubleshooting
+
+Generally speaking, if you meet any problem, open an issue on GitHub.
+
+### Error: `failed to compile grammar 'moonbit'`
+
+If you see this error while installing the extension, it may be caused by a corrupted or conflicting local grammar cache in Zed.
+
+Zed clones the Tree-sitter grammar into a local `grammars/moonbit` directory. If that folder already exists but is not a valid Git repository (or does not match the expected remote), installation can fail.
+
+**Fix:**
+
+1. Locate Zed’s extensions/grammars directory (depends on your OS).
+2. Delete the `grammars` folder (or at least `grammars/moonbit`).
+3. Restart Zed.
+4. Reinstall the extension.
+
+This is a local state issue and not a problem with the extension itself.
+
+---
+
 ## License
 
 MIT
