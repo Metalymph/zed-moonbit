@@ -59,6 +59,23 @@ In Zed:
 - open command palette
 - run: `zed: install dev extension`
 
+### Note: For the official releases look at [Releases](https://github.com/Metalymph/zed-moonbit/releases).
+
+## Optional: associate `moon.pkg` with MoonBit
+
+Since `moon.pkg` is a MoonBit package manifest rather than a `.mbt` source file, you may want to associate it manually in Zed settings:
+
+```json
+{
+  "file_types": {
+    "MoonBit": ["moon.pkg"]
+  }
+}
+```
+
+Zed currently does not support matching exact filenames in language extensions,
+so this must be configured manually.
+
 ---
 
 ## Development Workflow
