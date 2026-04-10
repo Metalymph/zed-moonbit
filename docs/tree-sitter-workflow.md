@@ -305,4 +305,4 @@ pwsh -File scripts/dev.ps1 -Watch -Log
 
 ## Final principle
 
-A simple valid query > complex broken query.
+A simple valid query > complex broken query
