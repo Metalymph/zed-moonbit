@@ -1,23 +1,23 @@
-; NOTE:
-; These queries are an initial approximation and may need to be updated
-; to match the actual MoonBit Tree-sitter grammar nodes.
+(function_definition
+  (function_identifier) @name) @item
 
-; Outline for functions
-(function_item
-  name: (identifier) @name) @item
+(struct_definition
+  (identifier) @name) @item
 
-; Outline for structs
-(struct_item
-  name: (type_identifier) @name) @item
+(enum_definition
+  (identifier) @name) @item
 
-; Outline for enums
-(enum_item
-  name: (type_identifier) @name) @item
+(trait_definition
+  (identifier) @name) @item
 
-; Outline for traits
-(trait_item
-  name: (type_identifier) @name) @item
+(impl_definition
+  (function_identifier) @name) @item
 
-; Outline for implementations
-(impl_item
-  type: (type_identifier) @name) @item
+(type_definition
+  (identifier) @name) @item
+
+(const_definition
+  (uppercase_identifier) @name) @item
+
+(value_definition
+  (lowercase_identifier) @name) @item

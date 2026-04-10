@@ -1,66 +1,32 @@
-; NOTE:
-; These queries are an initial approximation and may need to be updated
-; to match the actual MoonBit Tree-sitter grammar nodes.
-
-; Base keywords
 [
-  "fn"
-  "let"
-  "enum"
-  "struct"
-  "type"
-  "trait"
-  "impl"
-  "pub"
-  "mut"
-  "match"
-  "if"
-  "else"
-  "while"
-  "for"
-  "in"
-  "return"
-  "break"
-  "continue"
+  "fn" "let" "mut" "if" "else" "match" "while" "for" "in"
+  "return" "break" "continue" "struct" "enum" "trait" "type"
+  "pub" "priv" "impl" "test" "package" "import" "derive" "extern"
 ] @keyword
 
-; Types and identifiers
 (type_identifier) @type
-(primitive_type) @type.builtin
 (identifier) @variable
 
-; Functions
-(function_item name: (identifier) @function)
-(call_expression function: (identifier) @function.call)
-
-; Literal constants
-(number_literal) @number
 (boolean_literal) @boolean
+(integer_literal) @number
+(float_literal) @number
+(double_literal) @number
 (string_literal) @string
+(char_literal) @string
+(byte_literal) @number
+(bytes_literal) @string
 
-; Comments
-(line_comment) @comment
+(comment) @comment
 (block_comment) @comment
 
-; Brackets
 [
-  "{" "}"
-  "[" "]"
-  "(" ")"
+  "{" "}" "[" "]" "(" ")"
 ] @punctuation.bracket
 
-; Delimiters
 [
   "," "." ":" ";" "::" "->" "=>"
 ] @punctuation.delimiter
 
-; Operators
 [
-  "+" "-" "*" "/" "%"
-  "==" "!=" "<" "<=" ">" ">="
-  "&&" "||" "!"
-  "=" "+=" "-=" "*=" "/="
+  "+" "-" "*" "/" "%" "==" "!=" "<" "<=" ">" ">=" "&&" "||" "!" "=" "+=" "-=" "*=" "/="
 ] @operator
-
-; Struct fields
-(field_identifier) @property

@@ -9,3 +9,6 @@ Cargo.lock
 
 # Zed build artifacts
 /*.wasm
+
+# Tree-sitter grammar
+tree-sitter-moonbit/
