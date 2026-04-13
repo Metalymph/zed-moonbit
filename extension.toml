@@ -1,5 +1,5 @@
-id = "moonbit-community"
-name = "MoonBit Community"
+id = "moonbit"
+name = "MoonBit"
 version = "0.1.3"
 schema_version = 1
 authors = ["Lorenzo Pirro <lorenzopirro1@gmail.com>"]
