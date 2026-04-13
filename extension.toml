@@ -1,6 +1,6 @@
 id = "moonbit"
 name = "MoonBit"
-version = "0.1.3"
+version = "0.1.4"
 schema_version = 1
 authors = ["Lorenzo Pirro <lorenzopirro1@gmail.com>"]
 description = "MoonBit language support for Zed Editor. High-contrast premium aesthetics and LSP."
