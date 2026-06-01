@@ -14,4 +14,4 @@ Cargo.lock
 /grammars/*.wasm
 
 # Local Tree-sitter grammar checkout
-/tree-sitter-moonbit/
+/tree-sitter-moonbit/grammars/

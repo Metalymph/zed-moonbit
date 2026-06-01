@@ -1,7 +1,7 @@
 set shell := ["bash", "-cu"]
 
 tree_sitter_dir := env("TREE_SITTER_DIR", "../tree-sitter-moonbit")
-grammar_commit := env("GRAMMAR_COMMIT", "82237f3f508d09fb09668d9885c99a562a756fe0")
+grammar_commit := env("GRAMMAR_COMMIT", "ebdb3f38d46309a3a7f81c2af357da05ec8a4470")
 node_types := tree_sitter_dir + "/src/node-types.json"
 python := if os() == "windows" { "python" } else { "python3" }
 
